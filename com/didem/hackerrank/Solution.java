@@ -25,14 +25,14 @@ public class Solution {
             return 1;
 
         for(int i = 0; i< s.size()-1; i++){
+            // sub list alırken out of bound hatası almaması için
             if(s.size() - i < m){
                 return counter;
             }
-            List<Integer> subList = s.subList(i, i+m);
+            List<Integer> subList = s.subList(i, i+m); // m kadar eleman alabilmek için
             if(subList.size() == m){
-               int sum = subList.stream().reduce(0, (a, b) -> a + b);
-               System.out.println(sum);
-               if(sum == d){
+               int sum = subList.stream().reduce(0, (a, b) -> a + b); // m listesinin içindeki elemanları toplamak için.
+               if(sum == d){ // toplam dogum gunune esit oldukca count tut
                    counter += 1;
                }
             }
